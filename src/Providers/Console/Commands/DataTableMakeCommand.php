@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ianjaybronola\SpiceDatatable\Console\Commands;
+namespace Ianjaybronola\SpiceDatatable\Providers\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
@@ -24,22 +24,11 @@ final class DataTableMakeCommand extends GeneratorCommand
 
         $file = $readonly ? 'dto-82.stub' : 'dto.stub';
 
-        return __DIR__ . "/../../../stubs/{$file}";
+        return __DIR__ . '/../../../../stubs/' . $file;
     }
 
     protected function getDefaultNamespace($rootNamespace)
     {
         return $rootNamespace . '\DataTables';
     }
-
-    // protected function getNameInput()
-    // {
-    //     $name = trim($this->argument('name'));
-
-    //     if (Str::endsWith($name, 'DataTable')) {
-    //         return $name;
-    //     }
-
-    //     return $name . 'DataTable';
-    // }
 }

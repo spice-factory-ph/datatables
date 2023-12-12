@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Ianjaybronola\SpiceDatatable\Tests;
 
 use Illuminate\Support\Facades\File;
-use function PHPUnit\Framework\assertTrue;
-
-use Ianjaybronola\SpiceDatatable\Tests\PackageTestCase;
 use Ianjaybronola\SpiceDatatable\Console\Commands\DataTableMakeCommand;
+
+use function PHPUnit\Framework\assertTrue;
 
 uses(PackageTestCase::class)->in(__DIR__);
 
