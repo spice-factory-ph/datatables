@@ -32,14 +32,14 @@ final class DataTableMakeCommand extends GeneratorCommand
         return $rootNamespace . '\DataTables';
     }
 
-    protected function getNameInput()
-    {
-        $name = trim($this->argument('name'));
+    // protected function getNameInput()
+    // {
+    //     $name = trim($this->argument('name'));
 
-        if (Str::endsWith($name, 'DataTable')) {
-            return $name;
-        }
+    //     if (Str::endsWith($name, 'DataTable')) {
+    //         return $name;
+    //     }
 
-        return $name . 'DataTable';
-    }
+    //     return $name . 'DataTable';
+    // }
 }
