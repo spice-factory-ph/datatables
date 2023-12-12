@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Ianjaybronola\SpiceDatatable\Console\Commands;
+namespace Ianjaybronola\SpiceDatatable\Providers\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-final class DataTableMakeCommand extends Command
+class DataTableMakeCommand extends Command
 {
     protected $signature = 'make:spice-datatable {name: model name}';
 
     protected $description = 'Create a new datatable class';
-
-    protected $type = 'Datatable';
 
     protected function getStub()
     {
@@ -24,11 +22,11 @@ final class DataTableMakeCommand extends Command
 
         $file = $readonly ? 'dto-82.stub' : 'dto.stub';
 
-        return __DIR__ . "/../../../stubs/{$file}";
+        return __DIR__ . "/../../../../stubs/{$file}";
     }
 
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\DataTables';
+        return $rootNamespace . '\SpiceDatatable\DataTables';
     }
 }
