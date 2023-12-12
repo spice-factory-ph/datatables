@@ -34,7 +34,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Ianjaybronola\\SpiceDatatable\\SpiceDatatableServiceProvider"
+        "Ianjaybronola\\SpiceDatatable\\Providers\\SpiceDatatableServiceProvider"
       ]
     }
   }
