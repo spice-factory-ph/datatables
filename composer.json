@@ -3,7 +3,7 @@
   "description": "A Laravel package that seamlessly integrates Yajra DataTables with Bootstrap for a powerful and responsive data visualization experience.",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "require": {
     "laravel/ui": "^4.2",
     "yajra/laravel-datatables": "^10.1",
