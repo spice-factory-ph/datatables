@@ -10,7 +10,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class DataTableMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:spice-datatable {name: Model name}';
+    protected $name = 'make:spice-datatable {model}';
 
     protected $description = 'Create a new datatable class';
 
