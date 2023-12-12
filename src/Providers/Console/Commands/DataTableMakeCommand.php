@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Ianjaybronola\SpiceDatatable\Providers\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Artisan;
-use Symfony\Component\Console\Input\InputArgument;
 
 class DataTableMakeCommand extends Command
 {
