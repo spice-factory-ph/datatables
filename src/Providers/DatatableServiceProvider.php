@@ -6,6 +6,7 @@ namespace Ianjaybronola\SpiceDatatable\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\DataTableMakeCommand;
+use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\ScriptsMakeCommand;
 
 final class DatatableServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ final class DatatableServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands(
                 commands: [
+                    ScriptsMakeCommand::class,
                     DataTableMakeCommand::class,
                 ]
             );
