@@ -27,7 +27,7 @@ final class DataTableMakeCommand extends Command
         return __DIR__ . "/../../../stubs/{$file}";
     }
 
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getDefaultNamespace($rootNamespace): string
     {
         return $rootNamespace . '\DataTables';
     }
