@@ -9,20 +9,13 @@ use Illuminate\Support\Str;
 
 class DataTableMakeCommand extends GeneratorCommand
 {
-    protected $signature = 'make:spice-datatable {name}';
+    protected $signature = 'make:spice-datatable {name: model name}';
 
     protected $description = 'Create a new datatable class';
 
     protected function getStub()
     {
-        $readonly = Str::contains(
-            haystack: PHP_VERSION,
-            needles: '8.2',
-        );
-
-        $file = $readonly ? 'dto-82.stub' : 'dto.stub';
-
-        return __DIR__ . "/../../../../stubs/{$file}";
+        return __DIR__ . "/../../../../stubs/scripts.stub";
     }
 
     protected function getDefaultNamespace($rootNamespace): string
