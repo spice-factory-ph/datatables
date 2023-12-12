@@ -11,15 +11,14 @@ final class DatatableServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+    }
+
+    public function register()
+    {
         if ($this->app->runningInConsole()) {
             $this->commands([
                 DataTableMakeCommand::class,
             ]);
         }
-    }
-
-    public function register()
-    {
-        //
     }
 }
