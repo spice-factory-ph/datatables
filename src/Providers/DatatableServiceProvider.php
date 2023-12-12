@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Ianjaybronola\SpiceDatatable\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Ianjaybronola\SpiceDatatable\Console\Commands\DataTableMakeCommand;
+use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\DataTableMakeCommand;
 
 final class DatatableServiceProvider extends ServiceProvider
 {
