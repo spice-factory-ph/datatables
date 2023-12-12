@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class DataTableMakeCommand extends GeneratorCommand
 {
-    protected $signature = 'make:spice-datatable {name: model name}';
+    protected $signature = 'make:spice-datatable {model}';
 
     protected $description = 'Create a new datatable class';
 
