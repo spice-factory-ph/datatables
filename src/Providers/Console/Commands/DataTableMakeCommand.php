@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 final class DataTableMakeCommand extends GeneratorCommand
 {
-    protected $signature = 'make:spice-datatable';
+    protected $signature = 'make:spice-datatable {name: model name}';
 
     protected $description = 'Create a new datatable class';
 
@@ -32,14 +32,14 @@ final class DataTableMakeCommand extends GeneratorCommand
         return $rootNamespace . '\DataTables';
     }
 
-    // protected function getNameInput()
-    // {
-    //     $name = trim($this->argument('name'));
+    protected function getNameInput()
+    {
+        $name = trim($this->argument('name'));
 
-    //     if (Str::endsWith($name, 'DataTable')) {
-    //         return $name;
-    //     }
+        if (Str::endsWith($name, 'DataTable')) {
+            return $name;
+        }
 
-    //     return $name . 'DataTable';
-    // }
+        return $name . 'DataTable';
+    }
 }
