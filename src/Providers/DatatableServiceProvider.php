@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Ianjaybronola\SpiceDatatable\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Ianjaybronola\SpiceDatatable\Console\Commands\DataTableMakeCommand;
+
+final class DatatableServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                DataTableMakeCommand::class,
+            ]);
+        }
+    }
+
+    public function register()
+    {
+        //
+    }
+}
