@@ -28,7 +28,7 @@ class DataTableMakeCommand extends Command
         $this->output->writeln('Creating datatable for ' . $model . '...');
         $this->output->writeln(Artisan::output());
 
-        Artisan::call('make:scripts ' . $model);
+        $this->call('make:scripts ' . $model);
         $this->output->writeln('Creating scripts for ' . $model . '...');
         $this->output->writeln(Artisan::output());
     }
