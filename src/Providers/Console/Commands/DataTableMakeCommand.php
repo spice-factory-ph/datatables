@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Ianjaybronola\SpiceDatatable\Providers\Console\Commands;
 
-use Illuminate\Console\Command;
+use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
 
-class DataTableMakeCommand extends Command
+class DataTableMakeCommand extends GeneratorCommand
 {
     protected $signature = 'make:spice-datatable {name: model name}';
 
