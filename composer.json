@@ -1,6 +1,8 @@
 {
     "name": "ianjaybronola/spice-datatable",
     "description": "A Laravel package that seamlessly integrates Yajra DataTables with Bootstrap for a powerful and responsive data visualization experience.",
+    "type": "library",
+    "license": "MIT",
     "require": {
         "laravel/ui": "^4.2",
         "yajra/laravel-datatables": "^10.1",
