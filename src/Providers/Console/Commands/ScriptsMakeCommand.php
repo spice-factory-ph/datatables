@@ -9,7 +9,9 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class ScriptsMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:scripts {model}';
+    protected $signature = "spice-make:scripts {name : The Model Name}";
+
+    protected $name = "scripts";
     protected $description = 'Create scripts for datatable';
 
     protected function getStub()
