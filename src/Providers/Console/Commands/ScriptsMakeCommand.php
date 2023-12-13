@@ -51,8 +51,8 @@ class ScriptsMakeCommand extends Command
      */
     public function handle()
     {
-        $view = $this->argument('name');
-        $path = config('view.paths')[0] . '/' . $view . '.blade.php';
+        $view = strtolower($this->argument('name'));
+        $path = config('view.paths')[0] . '/datatables/scripts' . $view . '/scripts.blade.php';
         $directory = dirname($path);
 
         if ($this->file->exists($path)) {
