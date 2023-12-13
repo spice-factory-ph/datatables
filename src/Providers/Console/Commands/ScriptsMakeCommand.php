@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class ScriptsMakeCommand extends GeneratorCommand
 {
-    protected $signature = "spice-make:scripts {name}";
+    protected $signature = "spice-make:scripts {name: name of the resource for datatable}";
 
     protected $name = "scripts";
     protected $description = 'Create scripts for datatable';
