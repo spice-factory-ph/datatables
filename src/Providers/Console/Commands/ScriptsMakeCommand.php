@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class ScriptsMakeCommand extends GeneratorCommand
 {
-    protected $signature = "spice-make:scripts {name : The Model Name}";
+    protected $signature = "spice-make:scripts {model : The Model Name}";
 
     protected $name = "scripts";
     protected $description = 'Create scripts for datatable';
@@ -21,7 +21,8 @@ class ScriptsMakeCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace): string
     {
-        $scriptName = strtolower($this->name);
+        $scriptName = strtolower($this->getArguments()['model']);
+
         return $rootNamespace . '\Resources\views\\' . $scriptName . '\\' . $scriptName . '\\scripts.js';
     }
 
