@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class ScriptsMakeCommand extends GeneratorCommand
 {
-    protected $signature = "spice-make:scripts {name: name of the resource for datatable}";
+    protected $signature = "spice-make:scripts {name}";
 
     protected $name = "scripts";
     protected $description = 'Create scripts for datatable';
@@ -23,17 +23,5 @@ class ScriptsMakeCommand extends GeneratorCommand
     {
         $scriptName = strtolower($this->argument('name'));
         return config('view.paths')[0] . '\\' . $scriptName . '\\' . $scriptName . '\\scripts.blade.php';
-    }
-
-    /**
-     * Get the console command arguments.
-     *
-     * @return array
-     */
-    protected function getArguments()
-    {
-        return [
-            ['name', InputArgument::REQUIRED, 'The name of the model.'],
-        ];
     }
 }
