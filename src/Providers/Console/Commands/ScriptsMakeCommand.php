@@ -34,7 +34,7 @@ class ScriptsMakeCommand extends GeneratorCommand
     protected function getArguments()
     {
         return [
-            ['model', InputArgument::REQUIRED, 'The name of the model.'],
+            ['name', InputArgument::REQUIRED, 'The name of the model.'],
         ];
     }
 }
