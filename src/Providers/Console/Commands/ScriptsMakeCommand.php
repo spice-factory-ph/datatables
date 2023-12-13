@@ -44,7 +44,8 @@ class ScriptsMakeCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        return __DIR__ . "/../../../../stubs/scripts.stub";
+        return $this->resolveStubPath('/../../../../stubs/scripts.stub');
+        // return __DIR__ . "/../../../../stubs/scripts.stub";
     }
 
     /**
@@ -61,6 +62,18 @@ class ScriptsMakeCommand extends GeneratorCommand
         $class = str_replace(['{{ model_variable }}'], strtolower($modelName), $class);
 
         return $class;
+    }
+
+    /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param  string  $stub
+     */
+    protected function resolveStubPath($stub): string
+    {
+        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+            ? $customPath
+            : __DIR__ . $stub;
     }
 
     /**
