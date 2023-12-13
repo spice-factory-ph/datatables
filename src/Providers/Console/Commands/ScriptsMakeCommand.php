@@ -22,7 +22,7 @@ class ScriptsMakeCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace): string
     {
         $scriptName = strtolower($this->argument('name'));
-        return config('view.paths') . '\\' . $scriptName . '\\' . $scriptName . '\\scripts.blade.php';
+        return config('view.paths')[0] . '\\' . $scriptName . '\\' . $scriptName . '\\scripts.blade.php';
     }
 
     /**
