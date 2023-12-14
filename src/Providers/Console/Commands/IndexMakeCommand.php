@@ -56,6 +56,7 @@ class IndexMakeCommand extends Command
 
         $this->file->put($path, $contents);
         $this->info("Created a new datatable index at {$path}");
+        $this->info("The default route is set for get:'api/datatables/{$name}");
     }
 
     /**
@@ -68,6 +69,7 @@ class IndexMakeCommand extends Command
     public function getStubContents($stub)
     {
         $contents = file_get_contents($stub);
+        $contents = str_replace('|model|', $this->argument('name'), $contents);
         return $contents;
     }
 }
