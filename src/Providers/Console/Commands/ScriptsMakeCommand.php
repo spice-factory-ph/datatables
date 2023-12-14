@@ -20,11 +20,6 @@ class ScriptsMakeCommand extends Command
      */
     private $file;
 
-    /**
-     * @var Factory
-     */
-    private $view;
-
     protected function getStub()
     {
         return __DIR__ . "/../../../../stubs/scripts.stub";
