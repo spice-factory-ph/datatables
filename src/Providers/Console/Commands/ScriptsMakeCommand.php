@@ -42,7 +42,7 @@ class ScriptsMakeCommand extends Command
         $view = $this->argument('name');
         $path = 'resources/views/datatables/scripts' . '/' . $view . '.blade.php';
         $directory = dirname($path);
-        $contents = $this->getStubContents(__DIR__ . '/stubs/scripts.stub');
+        $contents = $this->getStubContents(__DIR__ . '/../../stubs/scripts.stub');
 
         if ($this->file->exists($path)) {
             $this->error("A view already exists at {$path}!");
