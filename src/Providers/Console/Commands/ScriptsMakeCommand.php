@@ -7,7 +7,6 @@ namespace Ianjaybronola\SpiceDatatable\Providers\Console\Commands;
 use Illuminate\View\Factory;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Input\InputArgument;
 
 class ScriptsMakeCommand extends Command
 {
@@ -20,21 +19,15 @@ class ScriptsMakeCommand extends Command
      */
     private $file;
 
-    protected function getStub()
-    {
-        return __DIR__ . "/../../../../stubs/scripts.stub";
-    }
-
     /**
      * Create a new command instance.
      *
      * @param Filesystem $file
      * @param Factory    $viewFactory
      */
-    public function __construct(Filesystem $file, Factory $viewFactory)
+    public function __construct(Filesystem $file)
     {
         $this->file = $file;
-        $this->view = $viewFactory;
 
         parent::__construct();
     }
@@ -49,6 +42,7 @@ class ScriptsMakeCommand extends Command
         $view = $this->argument('name');
         $path = 'resources/views/datatables/scripts' . '/' . $view . '.blade.php';
         $directory = dirname($path);
+        $contents = $this->getStubContents(__DIR__ . 'stubs/scripts.stub');
 
         if ($this->file->exists($path)) {
             $this->error("A view already exists at {$path}!");
@@ -58,7 +52,25 @@ class ScriptsMakeCommand extends Command
             $this->file->makeDirectory($directory, 0777, true);
         }
 
-        $this->file->put($path, $this->view($view));
+        $this->file->put($path, $contents);
         $this->info("Created a new view at {$path}");
+    }
+
+    /**
+     * Replace the stub variables(key) with the desire value
+     *
+     * @param $stub
+     * @param array $stubVariables
+     * @return bool|mixed|string
+     */
+    public function getStubContents($stub, $stubVariables = [])
+    {
+        $contents = file_get_contents($stub);
+
+        foreach ($stubVariables as $search => $replace) {
+            $contents = str_replace('$' . $search . '$', $replace, $contents);
+        }
+
+        return $contents;
     }
 }
