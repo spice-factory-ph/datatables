@@ -3,57 +3,13 @@ let selected = [];
 
 //handle clicking of table rows
 
-$('#|model|table').on('click', 'tbody tr', function (v) {
-let row = $(v.target).parent();
-let id = row.attr('id');
-
-// Check if id is in selected array
-if (row.hasClass('selected')) {
-// Remove id from selected arraylet globalSelected = [];
-let selected = [];
-
-//handle clicking of table rows
-
-$('#|model|table').on('click', 'tbody tr', function (v) {
+$('#|model|s-table').on('click', 'tbody tr', function (v) {
 let row = $(v.target).parent();
 let id = row.attr('id');
 
 // Check if id is in selected array
 if (row.hasClass('selected')) {
 // Remove id from selected array
-globalSelected.splice($.inArray(id, globalSelected), 1);
-} else {
-globalSelected.push(id);
-}
-
-if(globalSelected.length > 0){
-$('.export-button').removeClass('disabled')
-}else{
-$('.export-button').addClass('disabled')
-}
-
-});
-//end handling table row clicks
-
-
-//handle custom export buttons
-$('#export-to-excel').click(function(){
-$.post('api/export-to-excel', {
-ids: globalSelected
-}, function(r){
-// Create a Blob object from the response data
-let blob = new Blob([r]);
-
-// Create a temporary HTML link
-let link = document.createElement('a');
-link.href = URL.createObjectURL(blob);
-link.setAttribute('download', 'sample.csv')
-
-// Simulate a click on the link to trigger the download
-link.click();
-})
-})
-|model|
 globalSelected.splice($.inArray(id, globalSelected), 1);
 } else {
 globalSelected.push(id);
