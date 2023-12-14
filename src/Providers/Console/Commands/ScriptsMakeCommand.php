@@ -55,7 +55,7 @@ class ScriptsMakeCommand extends Command
         }
 
         $this->file->put($path, $contents);
-        $this->success("Created a new script file at {$path}");
+        $this->info("Created a new script file at {$path}");
     }
 
     /**

@@ -55,7 +55,7 @@ class IndexMakeCommand extends Command
         }
 
         $this->file->put($path, $contents);
-        $this->success("Created a new datatable index at {$path}");
+        $this->info("Created a new datatable index at {$path}");
     }
 
     /**
