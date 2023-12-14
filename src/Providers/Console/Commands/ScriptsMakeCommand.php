@@ -63,13 +63,10 @@ class ScriptsMakeCommand extends Command
      * @param array $stubVariables
      * @return bool|mixed|string
      */
-    public function getStubContents($stub, $stubVariables = [])
+    public function getStubContents($stub)
     {
         $contents = file_get_contents($stub);
-
-        foreach ($stubVariables as $search => $replace) {
-            $contents = str_replace('$' . $search . '$', $replace, $contents);
-        }
+        $contents = str_replace('|model|', $this->argument('name'), $contents);
 
         return $contents;
     }
