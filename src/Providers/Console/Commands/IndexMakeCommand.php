@@ -8,10 +8,10 @@ use Illuminate\View\Factory;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
-class ScriptsMakeCommand extends Command
+class IndexMakeCommand extends Command
 {
-    protected $signature = "spice-make:scripts {name}";
-    protected $description = 'Create scripts for datatable';
+    protected $signature = "spice-make:index {name}";
+    protected $description = 'Create index blade for datatable';
 
 
     /**
@@ -39,15 +39,15 @@ class ScriptsMakeCommand extends Command
      */
     public function handle()
     {
-        $view = $this->argument('name');
-        $path = 'resources/views/datatables/scripts' . '/' . $view . '.blade.php';
+        $name = $this->argument('name');
+        $path = 'resources/views/datatable/' . $name . 'index.blade.php';
         $directory = dirname($path);
-        $contents = $this->getStubContents(__DIR__ . '/../../../../stubs/scripts.stub');
+        $contents = $this->getStubContents(__DIR__ . '/../../../../stubs/index.stub');
 
-        $this->info('Creating scripts for ' . $view . ' datatable...');
+        $this->info('Creating index.blade.php for ' . $name . ' datatable...');
 
         if ($this->file->exists($path)) {
-            $this->error("A script file already exists at {$path}!");
+            $this->error("A datatable already exists at {$path}!");
         }
 
         if (!$this->file->exists($directory)) {
@@ -55,7 +55,7 @@ class ScriptsMakeCommand extends Command
         }
 
         $this->file->put($path, $contents);
-        $this->success("Created a new script file at {$path}");
+        $this->success("Created a new datatable index at {$path}");
     }
 
     /**
@@ -68,8 +68,6 @@ class ScriptsMakeCommand extends Command
     public function getStubContents($stub)
     {
         $contents = file_get_contents($stub);
-        $contents = str_replace('|model|', $this->argument('name'), $contents);
-
         return $contents;
     }
 }

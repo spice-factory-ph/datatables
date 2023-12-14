@@ -1,0 +1,26 @@
+@extends('layouts.main')
+
+@section('content')
+    <div class="row">
+        <div class="col m-4">
+            <table id="datatable" class="table">
+                <!-- DataTable content goes here -->
+            </table>
+        </div>
+    </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(function() {
+            $('#datatable').DataTable({
+                "ajax": "/api/sample-data",
+                "columns": [{
+                        "data": "id",
+                        "title": "ID"
+                    },
+                ]
+            });
+        });
+    </script>
+@endsection
