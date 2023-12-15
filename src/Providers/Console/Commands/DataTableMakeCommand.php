@@ -35,5 +35,8 @@ class DataTableMakeCommand extends Command
 
         $this->call('spice-make:index', ['name' => $model]);
         $this->output->writeln(Artisan::output());
+
+        $this->call('spice-make:actions', ['name' => $model]);
+        $this->output->writeln(Artisan::output());
     }
 }
