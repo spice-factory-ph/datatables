@@ -1,0 +1,11 @@
+<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+    <a href="{{ route('|model|s.show', $data->id) }}" class="btn">
+        <i class="bi bi-eye"></i>
+    </a>
+    <button type="button" class="btn">
+        <i class="bi bi-pencil-square"></i>
+    </button>
+    <button type="button" class="btn">
+        <i class="bi bi-trash"></i>
+    </button>
+</div>
