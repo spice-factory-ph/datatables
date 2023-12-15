@@ -1,26 +1,41 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col m-4">
-            <table id="datatable" class="table">
-                <!-- DataTable content goes here -->
-            </table>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3>Manage |Model|</h3>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-light disabled export-button" id="export-to-excel">
+                            <i class="bi bi-file-earmark-excel"></i>
+                        </button>
+                        <button type="button" class="btn btn-light disabled export-button">
+                            <i class="bi bi-filetype-csv"></i>
+                        </button>
+                        <button type="button" class="btn btn-light disabled export-button">
+                            <i class="bi bi-file-pdf"></i>
+                        </button>
+                        <button type="button" class="btn btn-light disabled export-button">
+                            <i class="bi bi-printer"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                {{ $dataTable->table([
+                    'class' => 'no-striped',
+                    'id' => '[model]s-table',
+                ]) }}
+            </div>
         </div>
     </div>
 @endsection
 
-@section('scripts')
-    <script>
-        $(function() {
-            $('#datatable').DataTable({
-                "ajax": "/api/datatables/|model|",
-                "columns": [{
-                        "data": "id",
-                        "title": "ID"
-                    },
-                ]
-            });
-        });
-    </script>
-@endsection
+@push('scripts')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush
+
+@push('scripts')
+    <script></script>
+@endpush
