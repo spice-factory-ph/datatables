@@ -40,7 +40,7 @@ class IndexMakeCommand extends Command
     public function handle()
     {
         $name = strtolower($this->argument('name'));
-        $path = 'resources/views/' . $name . '/index.blade.php';
+        $path = 'resources/views/' . $name . 's/index.blade.php';
         $directory = dirname($path);
         $contents = $this->getStubContents(__DIR__ . '/../../../../stubs/index.stub');
 
