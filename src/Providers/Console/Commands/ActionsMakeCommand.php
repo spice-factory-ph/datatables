@@ -8,7 +8,7 @@ use Illuminate\View\Factory;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
-class ScriptsMakeCommand extends Command
+class ActionsMakeCommand extends Command
 {
     protected $signature = "spice-make:actions {name}";
     protected $description = 'Create actions view for datatable';

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ianjaybronola\SpiceDatatable\Providers;
 
+use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\ActionsMakeCommand;
 use Illuminate\Support\ServiceProvider;
 use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\DataTableMakeCommand;
 use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\IndexMakeCommand;
@@ -18,6 +19,7 @@ final class DatatableServiceProvider extends ServiceProvider
                 commands: [
                     ScriptsMakeCommand::class,
                     IndexMakeCommand::class,
+                    ActionsMakeCommand::class,
                     DataTableMakeCommand::class,
                 ]
             );
