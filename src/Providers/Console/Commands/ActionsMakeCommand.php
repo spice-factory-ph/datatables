@@ -39,7 +39,7 @@ class ActionsMakeCommand extends Command
      */
     public function handle()
     {
-        $name = $this->argument('name');
+        $name = strtolower($this->argument('name'));
         $path = 'resources/views/datatables/actions' . '/' . $name . '.blade.php';
         $directory = dirname($path);
         $contents = $this->getStubContents(__DIR__ . '/../../../../stubs/actions.stub');
@@ -56,12 +56,10 @@ class ActionsMakeCommand extends Command
 
         $this->file->put($path, $contents);
         $this->info("Created a new blade file at {$path}");
-        $this->output->writeln("Please make sure to add");
-        $this->output->writeln("->addColumn('action',function (\$data) {");
-        $this->output->writeln("return view('datatables.{$name}.actions', ['data' => \$data]);");
-        $this->output->writeln("})");
-
-        $this->output->writeln("to {$name}DataTable.php on line 25");
+        $this->output->writeln("Please make sure to line 25 of {$name}DataTable.php on line 25");
+        $this->output->writeln("\t->addColumn('action',function (\$data) {");
+        $this->output->writeln("\t\treturn view('datatables.{$name}.actions', ['data' => \$data]);");
+        $this->output->writeln("\t})");
     }
 
     /**
@@ -74,7 +72,7 @@ class ActionsMakeCommand extends Command
     public function getStubContents($stub)
     {
         $contents = file_get_contents($stub);
-        $contents = str_replace('|model|', $this->argument('name'), $contents);
+        $contents = str_replace('|model|', strtolower($this->argument('name')), $contents);
 
         return $contents;
     }
