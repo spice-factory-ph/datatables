@@ -53,10 +53,32 @@ class ScriptsMakeCommand extends Command
         if (!$this->file->exists($directory)) {
             $this->file->makeDirectory($directory, 0777, true);
         }
-
+        $this->appendDrawCallbackToDataTableClass();
         $this->file->put($path, $contents);
         $this->info("Created a new script file at {$path}");
     }
+
+    private function appendDrawCallbackToDataTableClass()
+    {
+        //check if name attribute + DataTable class file exists
+        $dataTableClassName = $this->argument('name') . 'DataTable';
+        $dataTableClassPath = 'app/DataTables/' . $dataTableClassName . '.php';
+
+        if (!$this->file->exists($dataTableClassPath)) {
+            $this->error("A DataTable class file for {$dataTableClassName} does not exist at {$dataTableClassPath}!");
+        }
+        $classContent = $this->file->get($dataTableClassPath);
+
+        // find "Button::make('reload')
+        //     ]);" in content
+        // append the contents in drawcallback stub file
+        $drawCallbackStub = $this->getStubContents(__DIR__ . '/../../../../stubs/drawcallback.stub');
+        $classContent = str_replace(']);', $drawCallbackStub, $classContent);
+
+        // replace the contents of class to appended version
+        $this->file->put($dataTableClassPath, $classContent);
+    }
+
 
     /**
      * Replace the stub variables(key) with the desire value
