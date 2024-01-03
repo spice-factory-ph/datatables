@@ -21,7 +21,7 @@ class |Model|DataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($data) {
-                return view('datatables.actions.sample', ['data' => $data]);
+                return view('datatables.actions.|model|', ['data' => $data]);
             })
             ->setRowId('id');
     }
