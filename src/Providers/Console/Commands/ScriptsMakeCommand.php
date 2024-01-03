@@ -53,12 +53,12 @@ class ScriptsMakeCommand extends Command
         if (!$this->file->exists($directory)) {
             $this->file->makeDirectory($directory, 0777, true);
         }
-        $this->appendDrawCallbackToDataTableClass();
+        $this->modifyDataTableWithParams();
         $this->file->put($path, $contents);
         $this->info("Created a new script file at {$path}");
     }
 
-    private function appendDrawCallbackToDataTableClass()
+    private function modifyDataTableWithParams()
     {
         //check if name attribute + DataTable class file exists
         $dataTableClassName = $this->argument('name') . 'DataTable';
@@ -77,6 +77,10 @@ class ScriptsMakeCommand extends Command
 
         // find and replace "selectStyleSingle" with selectStyleMulti
         $classContent = str_replace('selectStyleSingle', 'selectStyleMulti', $classContent);
+
+        // replace ->addColumn('action', 'sample.action') with the contents inside addcolumn.stub
+        $addColumnStub = $this->getStubContents(__DIR__ . '/../../../../stubs/addcolumn.stub');
+        $classContent = str_replace("->addColumn('action', 'sample.action')", $addColumnStub, $classContent);
 
         // replace the contents of class to appended version
         $this->file->put($dataTableClassPath, $classContent);

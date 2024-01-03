@@ -1,0 +1,3 @@
+->addColumn('action',function ($data) {
+                return view('datatables.actions.sample', ['data' => $data]);
+        })
