@@ -42,7 +42,6 @@ class |Model|DataTable extends DataTable
         return $this->builder()
             ->setTableId('|model|-table')
             ->columns($this->getColumns())
-            ->minifiedAjax()
             //->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleMulti()
@@ -64,17 +63,6 @@ class |Model|DataTable extends DataTable
                         }
                     });
                 }'
-            ])
-            ->select(true)
-            ->parameters([
-                'drawCallback' => 'function(s){
-                    $("#vehiclestable tbody tr").each(function(k, v){
-                        let id = $(v).attr("id")
-                        if($.inArray(id, globalSelected) >= 0){
-                            $(v).addClass("selected")
-                        }
-                    });
-                }'
             ]);
     }
 
@@ -84,13 +72,12 @@ class |Model|DataTable extends DataTable
     public function getColumns(): array
     {
         return [
+            Column::make('id'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
                 ->addClass('text-center'),
-            Column::make('id'),
-
             Column::make('created_at'),
             Column::make('updated_at'),
         ];
