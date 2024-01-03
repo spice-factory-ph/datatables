@@ -56,9 +56,6 @@ class ActionsMakeCommand extends Command
 
         $this->file->put($path, $contents);
         $this->info("Created a new blade file at {$path}");
-        $this->output->writeln("\t->addColumn('action',function (\$data) {");
-        $this->output->writeln("\t\treturn view('datatables.actions.{$name}', ['data' => \$data]);");
-        $this->output->writeln("\t})");
     }
 
     /**
