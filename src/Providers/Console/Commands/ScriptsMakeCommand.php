@@ -69,23 +69,13 @@ class ScriptsMakeCommand extends Command
         }
         $classContent = $this->file->get($dataTableClassPath);
 
-        // find "Button::make('reload')
-        //     ]);" in content
-        // append the contents in drawcallback stub file
-        $drawCallbackStub = $this->getStubContents(__DIR__ . '/../../../../stubs/drawcallback.stub');
-        $classContent = str_replace(']);', $drawCallbackStub, $classContent);
+        // replace all the contents in classContent with the contents inside datatable.stub
+        $classContent = $this->getStubContents(__DIR__ . '/../../../../stubs/datatable.stub');
+        // insert data from original class content into the new one
+        $classContent = str_replace('|Model|', $this->argument('name'), $classContent);
+        $classContent = str_replace('|model|', strtolower($this->argument('name')), $classContent);
 
-        // find and replace "selectStyleSingle" with selectStyleMulti
-        $classContent = str_replace('selectStyleSingle', 'selectStyleMulti', $classContent);
-
-        // replace ->addColumn('action', 'sample.action') with the contents inside addcolumn.stub
-        $addColumnStub = $this->getStubContents(__DIR__ . '/../../../../stubs/addcolumn.stub');
-        $classContent = str_replace("->addColumn('action', '" . strtolower($this->argument('name')) . ".action')", $addColumnStub, $classContent);
-
-        // replace Column::make('add your columns'), to blank
-        $classContent = str_replace("Column::make('add your columns'),", '', $classContent);
-
-        // replace the contents of class to appended version
+        // replace the contents of class to new version
         $this->file->put($dataTableClassPath, $classContent);
     }
 
