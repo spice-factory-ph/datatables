@@ -80,7 +80,7 @@ class ScriptsMakeCommand extends Command
 
         // replace ->addColumn('action', 'sample.action') with the contents inside addcolumn.stub
         $addColumnStub = $this->getStubContents(__DIR__ . '/../../../../stubs/addcolumn.stub');
-        $classContent = str_replace("->addColumn('action', {$this->argument('name')}.action')", $addColumnStub, $classContent);
+        $classContent = str_replace("->addColumn('action', " . strtolower($this->argument('name')) . ".action')", $addColumnStub, $classContent);
 
         // replace the contents of class to appended version
         $this->file->put($dataTableClassPath, $classContent);
