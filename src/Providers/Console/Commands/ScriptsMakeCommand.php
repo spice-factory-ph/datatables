@@ -75,6 +75,9 @@ class ScriptsMakeCommand extends Command
         $drawCallbackStub = $this->getStubContents(__DIR__ . '/../../../../stubs/drawcallback.stub');
         $classContent = str_replace(']);', $drawCallbackStub, $classContent);
 
+        // find and replace "selectStyleSingle" with selectStyleSingle
+        $classContent = str_replace('"selectStyleSingle"', 'selectStyleMulti', $classContent);
+
         // replace the contents of class to appended version
         $this->file->put($dataTableClassPath, $classContent);
     }
