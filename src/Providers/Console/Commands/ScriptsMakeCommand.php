@@ -10,7 +10,7 @@ use Illuminate\Filesystem\Filesystem;
 
 class ScriptsMakeCommand extends Command
 {
-    protected $signature = "spice-make:scripts {name}";
+    protected $signature = "spice-make:scripts {name} {--buttons=}";
     protected $description = 'Create scripts for datatable';
 
 
