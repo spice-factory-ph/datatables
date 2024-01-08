@@ -15,6 +15,14 @@ final class DatatableServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
+            // publish the css file from assets/main.css
+            $this->publishes(
+                [
+                    __DIR__ . '/../resources/assets' => public_path('spicedatatable'),
+                ],
+                'assets'
+            );
+
             $this->commands(
                 commands: [
                     ScriptsMakeCommand::class,
@@ -23,11 +31,6 @@ final class DatatableServiceProvider extends ServiceProvider
                     DataTableMakeCommand::class,
                 ]
             );
-
-            // publish the css file from assets/main.css
-            $this->publishes([
-                __DIR__ . '/../resources/assets' => public_path('spice-datatable'),
-            ], 'assets');
         }
     }
 
