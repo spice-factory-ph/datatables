@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Artisan;
 
 class DataTableMakeCommand extends Command
 {
-    protected $signature = 'make:spice-datatable {model} {--buttons}';
+    protected $signature = 'make:spice-datatable {model} {--buttons=}';
 
     protected $description = 'Create a new datatable class';
 
@@ -30,7 +30,8 @@ class DataTableMakeCommand extends Command
         $this->output->writeln('Creating datatable for ' . $model . '...');
         $this->output->writeln(Artisan::output());
 
-        $this->call('spice-make:scripts', ['name' => strtolower($model)]);
+        // call artisan make:scripts and pass options same as this option buttons
+        $this->call('spice-make:scripts', ['name' => strtolower($model), '--buttons' => $includeButtons]);
         $this->output->writeln(Artisan::output());
 
         $this->call('spice-make:index', ['name' => $model]);
