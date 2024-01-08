@@ -44,6 +44,7 @@ class |Model|DataTable extends DataTable
             ->columns($this->getColumns())
             ->dom('<"row"<"col-6"f><"col-6" style="text-align:right"B>>rtip')
             ->orderBy(1)
+            ->language(['search' => ''])
             ->selectStyleMulti()
             ->buttons([
                 // Button::make('add'),
