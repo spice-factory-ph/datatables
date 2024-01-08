@@ -43,6 +43,7 @@ class ScriptsMakeCommand extends Command
         $path = 'resources/views/datatables/scripts' . '/' . $view . '.blade.php';
         $directory = dirname($path);
         $contents = $this->getStubContents(__DIR__ . '/../../../../stubs/scripts.stub');
+        $buttons = $this->option('buttons');
 
         $this->info('Creating scripts for ' . $view . ' datatable...');
 
@@ -53,13 +54,16 @@ class ScriptsMakeCommand extends Command
         if (!$this->file->exists($directory)) {
             $this->file->makeDirectory($directory, 0777, true);
         }
-        $this->modifyDataTableWithParams();
+        $this->modifyDataTableWithParams($buttons);
         $this->file->put($path, $contents);
         $this->info("Created a new script file at {$path}");
     }
 
-    private function modifyDataTableWithParams()
+    private function modifyDataTableWithParams($buttons)
     {
+        // explode buttons separated by commas
+        $buttons = explode(',', $buttons);
+
         //check if name attribute + DataTable class file exists
         $dataTableClassName = $this->argument('name') . 'DataTable';
         $dataTableClassPath = 'app/DataTables/' . $dataTableClassName . '.php';
@@ -74,6 +78,11 @@ class ScriptsMakeCommand extends Command
         // insert data from original class content into the new one
         $classContent = str_replace('|Model|', $this->argument('name'), $classContent);
         $classContent = str_replace('|model|', strtolower($this->argument('name')), $classContent);
+
+        // if buttons contains 'add' find string // Button::make('add'), in class content and replace with Button::make('add'),
+        if (in_array('add', $buttons)) {
+            $classContent = str_replace('// Button::make(\'add\'),', 'Button::make(\'add\'),', $classContent);
+        }
 
         // replace the contents of class to new version
         $this->file->put($dataTableClassPath, $classContent);

@@ -46,12 +46,26 @@ class |Model|DataTable extends DataTable
             ->orderBy(1)
             ->selectStyleMulti()
             ->buttons([
-                Button::make('excel'),
-                Button::make('csv'),
-                Button::make('pdf'),
-                Button::make('print'),
-                Button::make('reset'),
-                Button::make('reload')
+                // Button::make('add'),
+                // Button::make('spacer'),
+                // Button::make('excel'),
+                // Button::make('csv'),
+                // Button::make('pdf'),
+                // Button::make('print'),
+                // Button::make('spacer'),
+                // Button::make('reset'),
+                // Button::make('reload'),
+                // Button::make('spacer'),
+                // Button::make('selectAll'),
+                // Button::make('selectNone'),
+                // [
+                //     'text' => '<i class="bi bi-file-earmark-excel"></i> ',
+                //     'className' => 'My custom class'
+                // ],
+                // [
+                //     'extend' => 'toggleSelectAll',
+                //     'text' => 'Select All'
+                // ]
             ])
             ->select(true)
             ->parameters([
