@@ -26,12 +26,8 @@ final class DatatableServiceProvider extends ServiceProvider
 
             // publish the css file from assets/main.css
             $this->publishes([
-                __DIR__ . '/../../../../assets/main.css' => public_path('vendor/courier'),
-            ], 'public');
-
-            // $this->publishes([
-            //     __DIR__ . '/assets/main.css' => public_path('vendor/courier'),
-            // ], 'public');
+                __DIR__ . '/../resources/assets' => public_path('spice-datatable'),
+            ], 'assets');
         }
     }
 
