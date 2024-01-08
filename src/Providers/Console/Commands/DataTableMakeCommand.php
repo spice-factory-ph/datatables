@@ -35,7 +35,7 @@ class DataTableMakeCommand extends Command
         if ($includeButtons) {
             $this->output->writeln('Including buttons: ' . $includeButtons);
         }
-        Artisan::call('make:scripts', [
+        Artisan::call('spice-make:scripts', [
             'name' => strtolower($model),
             '--buttons=' => $includeButtons
         ]);
