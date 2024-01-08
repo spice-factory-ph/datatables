@@ -62,7 +62,7 @@ class ScriptsMakeCommand extends Command
     private function modifyDataTableWithParams($buttons)
     {
         // explode buttons separated by commas
-        $buttons = explode(',', $buttons);
+        $buttons = $buttons ? explode(',', $buttons) : '';
 
         //check if name attribute + DataTable class file exists
         $dataTableClassName = $this->argument('name') . 'DataTable';
