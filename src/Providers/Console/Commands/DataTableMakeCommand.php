@@ -31,13 +31,14 @@ class DataTableMakeCommand extends Command
         $this->output->writeln(Artisan::output());
 
         // call artisan make:scripts and pass options same as this option buttons
-        $this->call('spice-make:scripts', ['name' => strtolower($model), '--buttons' => $includeButtons]);
-        $this->output->writeln(Artisan::output());
 
-        $this->call('spice-make:index', ['name' => $model]);
-        $this->output->writeln(Artisan::output());
+        // $this->call('spice-make:scripts', ['name' => strtolower($model), '--buttons' => $includeButtons]);
+        // $this->output->writeln(Artisan::output());
 
-        $this->call('spice-make:actions', ['name' => $model]);
-        $this->output->writeln(Artisan::output());
+        // $this->call('spice-make:index', ['name' => $model]);
+        // $this->output->writeln(Artisan::output());
+
+        // $this->call('spice-make:actions', ['name' => $model]);
+        // $this->output->writeln(Artisan::output());
     }
 }
