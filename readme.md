@@ -4,7 +4,7 @@
 
 ## Description
 
-Efficiently create and customize standard data tables for your spice factory projects with this reusable and adaptable package.
+Efficiently create and customize standard data tables for spice factory projects with this reusable and adaptable package.
 
 ## Features
 
