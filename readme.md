@@ -15,5 +15,5 @@ A brief description of what the package does.
 ### Exporting the styles
 `php artisan vendor:publish --provider=SpiceDataTable\ServiceProvider`
 ### Adding the styles
-- Put this in the view files:
-    <link href="{{ asset('spicedatatable/css/app.css') }}" rel="stylesheet" />
+- Import the css file in resources/sass/app.css:
+```    @import '../public/spicedatatable/css/app';```
