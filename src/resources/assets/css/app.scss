@@ -40,6 +40,14 @@ table.dataTable.table-striped>tbody>tr:nth-of-type(2n+1)>* {
     }
 }
 
+table.dataTable>tbody>tr.selected>* {
+    box-shadow: inset 0 0 0 9999px #128661;
+}
+
+table.dataTable.table-hover>tbody>tr.selected:hover>* {
+    box-shadow: inset 0 0 0 9999px #128661;
+}
+
 div.dataTables_wrapper div.dataTables_filter {
     text-align: left !important;
 }
