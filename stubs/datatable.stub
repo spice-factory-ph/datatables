@@ -42,9 +42,15 @@ class |Model|DataTable extends DataTable
         return $this->builder()
             ->setTableId('|model|-table')
             ->columns($this->getColumns())
-            ->dom('<"row"<"col-6"f><"col-6" style="text-align:right"B>>rtip')
-            ->orderBy(1)
-            ->language(['search' => ''])
+            ->dom('<"row"<"col-6"f><"col-6 spice-datatable-buttons"B>>rt<"row"<"col-12 text-end"ip>>')
+            ->language([
+                'search' => '',
+                'paginate' => [
+                    'next' => '<i class="bi bi-chevron-right fw-bolder"></i>',
+                    'previous' => '<i class="bi bi-chevron-left"></i>'
+                ],
+                "sInfo" => "Displaying _START_ - _END_ out of _TOTAL_",
+            ])
             ->selectStyleMulti()
             ->buttons([
                 // Button::make('add'),
