@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ianjaybronola\SpiceDatatable\Tests;
+namespace Spicefactoryph\SpiceDatatable\Tests;
 
 use Illuminate\Support\Facades\File;
 
-use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\ScriptsMakeCommand;
+use Spicefactoryph\SpiceDatatable\Providers\Console\Commands\ScriptsMakeCommand;
 
 use function PHPUnit\Framework\assertTrue;
 

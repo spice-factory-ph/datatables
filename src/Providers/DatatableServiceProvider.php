@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Ianjaybronola\SpiceDatatable\Providers;
+namespace Spicefactoryph\SpiceDatatable\Providers;
 
-use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\ActionsMakeCommand;
+use Spicefactoryph\SpiceDatatable\Providers\Console\Commands\ActionsMakeCommand;
 use Illuminate\Support\ServiceProvider;
-use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\DataTableMakeCommand;
-use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\IndexMakeCommand;
-use Ianjaybronola\SpiceDatatable\Providers\Console\Commands\ScriptsMakeCommand;
+use Spicefactoryph\SpiceDatatable\Providers\Console\Commands\DataTableMakeCommand;
+use Spicefactoryph\SpiceDatatable\Providers\Console\Commands\IndexMakeCommand;
+use Spicefactoryph\SpiceDatatable\Providers\Console\Commands\ScriptsMakeCommand;
 
 final class DatatableServiceProvider extends ServiceProvider
 {

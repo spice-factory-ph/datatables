@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ianjaybronola\SpiceDatatable\Providers\Console\Commands;
+namespace Spicefactoryph\SpiceDatatable\Providers\Console\Commands;
 
 use Illuminate\View\Factory;
 use Illuminate\Console\Command;

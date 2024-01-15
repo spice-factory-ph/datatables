@@ -20,7 +20,7 @@ Efficiently create and customize standard data tables for spice factory projects
 
 ## Installation
 
-- require ```"ianjaybronola/spice-datatable": "dev-main"``` in composer.json 
+- require ```"spice-factory-ph/spice-datatable": "dev-main"``` in composer.json 
 ### Exporting the styles
 `php artisan vendor:publish --provider=SpiceDataTable\ServiceProvider`
 ### Adding the styles

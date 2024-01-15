@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ianjaybronola\SpiceDatatable\Tests;
+namespace Spicefactoryph\SpiceDatatable\Tests;
 
-use Ianjaybronola\SpiceDatatable\Providers\DatatableServiceProvider;
+use Spicefactoryph\SpiceDatatable\Providers\DatatableServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class PackageTestCase extends BaseTestCase
