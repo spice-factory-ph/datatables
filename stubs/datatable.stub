@@ -77,7 +77,7 @@ class |Model|DataTable extends DataTable
             ->select(true)
             ->parameters([
                 'drawCallback' => 'function(s){
-                    $("#vehiclestable tbody tr").each(function(k, v){
+                    $("#|model| tbody tr").each(function(k, v){
                         let id = $(v).attr("id")
                         if($.inArray(id, globalSelected) >= 0){
                             $(v).addClass("selected")

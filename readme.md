@@ -27,9 +27,17 @@ Efficiently create and customize standard data tables for spice factory projects
 - Import the css file in resources/sass/app.css:
 ```    @import '../public/spicedatatable/css/app';```
 
+Add this in the layouts file just before the end of the body tag
+``` 
+@include('partials.footer-scripts')
+@stack('scripts')
+```
+
+
 ## Share your thoughts!!!
 
 - Share your feedback and experiences with other devs or lead engineer.
 - Collaborate to enhance the package's capabilities and create even more versatile data table solutions for the spice factory projects.
 
 Let's spice up your data management together! ️
+
