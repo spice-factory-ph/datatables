@@ -52,10 +52,11 @@ sail artisan make:spice-datatable {model} --buttons=a
 
 ### Update `views/{model}/index.blade.php` to adapt the project layout.
 
-### Add this in the layouts file just before the end of the body tag.
+### Add the scripts.
 ``` 
-@include('partials.footer-scripts')
-@stack('scripts')
+@push('scripts')
+        {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush
 ```
 
 ### Customizing CSS
