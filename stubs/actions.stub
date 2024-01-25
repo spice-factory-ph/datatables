@@ -1,3 +1,4 @@
+{{-- You may refer to the row value in the $data variable --}}
 <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
     <button type="button" class="btn">
         <i class="bi bi-eye"></i>
