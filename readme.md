@@ -36,6 +36,20 @@ import 'laravel-datatables-vite';
 sail artisan make:spice-datatable {model} --buttons=a
 ```
 
+### Render the datatable inside your controller class index method with
+``` 
+ /**
+     * Display a listing of the resource.
+     *
+     * @param  {ModelName}DataTable  $dataTable
+     * @return View|JsonResponse
+     */
+    public function index({ModelName}DataTable $dataTable): View|JsonResponse
+    {
+        return $dataTable->render('{modelname}.index');
+    }
+```
+
 ### Update `views/{model}/index.blade.php` to adapt the project layout.
 
 ### Add this in the layouts file just before the end of the body tag.
